@@ -20,3 +20,7 @@ fn remove() -> Result<UserData, String> {
     let user_principal = caller();
     with_state(|state| api::remove_user_post(state, user_principal))
 }
+#[update]
+fn greet()-> String{
+    "Hello Bc!".to_string()
+}
