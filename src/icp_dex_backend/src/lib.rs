@@ -4,6 +4,7 @@ mod state_handler;
 mod types;
 mod upgrade;
 mod user;
+mod canister_types;
 use ic_cdk:: export_candid;
 use memory::Memory;
 use state_handler::State;
