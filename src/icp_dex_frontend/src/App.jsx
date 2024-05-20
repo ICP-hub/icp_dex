@@ -27,7 +27,7 @@ function App() {
         <MobileNavbar NavbarData={CommonNavbarData} setClickConnectWallet={setClickConnectWallet} />
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-            <Route path='/' element={<LandingPage setClickConnectWallet={setClickConnectWallet}/>}/>
+            <Route path='/' element={<LandingPage setClickConnectWallet={setClickConnectWallet} clickConnectWallet={clickConnectWallet}/>}/>
             {AppRoutes.slice(1).map((route, index) => (
               <Route
                 key={index}

@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { UpdateAmount, toggleConfirm } from '../../reducer/PoolCreation'
 import { useAuth } from '../../components/utils/useAuthClient';
 
-const InitialLiquidity = () => {
+const InitialLiquidity = ({handleBack}) => {
 
 
     const dispatch = useDispatch();
@@ -223,6 +223,16 @@ const InitialLiquidity = () => {
             >
                 <GradientButton CustomCss={` my-2 sm:my-4 w-full ${ButtonActive ? ' opacity-100 cursor-pointer' : 'opacity-50 cursor-default'}`}>
                     Analyse Pair
+                </GradientButton>
+            </div>
+            <div
+                className={`font-cabin text-base font-medium `}
+                onClick={() => {
+                    handleBack()
+                }}
+            >
+                <GradientButton CustomCss={` w-full`}>
+                    Back
                 </GradientButton>
             </div>
         </div>

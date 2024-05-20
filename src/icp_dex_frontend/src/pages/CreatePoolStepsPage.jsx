@@ -26,11 +26,11 @@ const CreatePoolStepsPage = () => {
     const getStepContent = (step) => {
         switch (step) {
             case 0:
-                return <SelectTokensForPools handleNext={handleNext} />;
+                return <SelectTokensForPools handleNext={handleNext} handleBack={handleBack} />;
             case 1:
-                return <SetPoolFees handleNext={handleNext} />;
+                return <SetPoolFees handleNext={handleNext} handleBack={handleBack} />;
             case 2:
-                return <InitialLiquidity />;
+                return <InitialLiquidity handleBack={handleBack} />;
             default:
                 return 'Unknown step';
         }
@@ -50,7 +50,7 @@ const CreatePoolStepsPage = () => {
                 <div>
                     {getStepContent(activeStep)}
                 </div>
-                <div className="flex mt-4">
+                {/* <div className="flex mt-4">
                     <button className={`mr-2 p-5 rounded-full bg-[#8D4C00] ${activeStep === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-50'}`} disabled={activeStep === 0} onClick={handleBack}>
                         <MoveLeft size={30} />
                     </button>
@@ -64,7 +64,7 @@ const CreatePoolStepsPage = () => {
                             <MoveRight size={30} />
                         </button>
                     )}
-                </div>
+                </div> */}
             </div>
         </div>
     );

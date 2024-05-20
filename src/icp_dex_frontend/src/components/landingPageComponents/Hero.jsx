@@ -4,7 +4,7 @@ import GradientButton from '../../buttons/GradientButton'
 import BorderGradientButton from '../../buttons/BorderGradientButton'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../utils/useAuthClient'
-const Hero = ({ setClickConnectWallet }) => {
+const Hero = ({ setClickConnectWallet,clickConnectWallet }) => {
     const { isAuthenticated } = useAuth()
     const navigate = useNavigate();
     return (
@@ -32,7 +32,8 @@ const Hero = ({ setClickConnectWallet }) => {
                         </GradientButton>
                     </div>
                     <div onClick={() => {
-                        setClickConnectWallet(true)
+                        
+                        setClickConnectWallet(!clickConnectWallet)
                     }}>
                         <BorderGradientButton>
                             {isAuthenticated ? (

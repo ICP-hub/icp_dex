@@ -10,7 +10,7 @@ import LiquidityInfo from '../components/landingPageComponents/LiquidityInfo'
 // import { LandingPageNavbarData } from '../TextData'
 // import MobileNavbar from '../navbar/MobileNavbar'
 // import { useState } from 'react'
-const LandingPage = ({setClickConnectWallet}) => {
+const LandingPage = ({setClickConnectWallet,clickConnectWallet}) => {
 
 
     return (
@@ -18,12 +18,12 @@ const LandingPage = ({setClickConnectWallet}) => {
 
             <div className='md:mx-8 mx-4'>
                 <div className='relative'>
-                    <Hero setClickConnectWallet={setClickConnectWallet}/>
+                    <Hero setClickConnectWallet={setClickConnectWallet} clickConnectWallet={clickConnectWallet}/>
                 </div>
 
                 <About />
                 <LiquidityInfo />
-                <Partnership />
+                {/* <Partnership /> */}
                 <Methods />
 
                 <div className='mt-4'>

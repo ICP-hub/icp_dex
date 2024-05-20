@@ -51,7 +51,7 @@ const ConnectWallet = ({ setClickConnectWallet, setWalletClicked }) => {
                             <img src={IcpWallet} alt="" className='w-16 h-16 ' />
                         </div>
                         <div className='font-normal text-xl font-cabin text-start'>
-                            Icp Identity
+                            Internet Identity
                         </div>
                     </div>
                     <div className={`flex gap-6 items-center w-10/12  px-2 py-6 bg-[#303030] hover:opacity-80 cursor-pointer rounded-xl
@@ -75,7 +75,7 @@ const ConnectWallet = ({ setClickConnectWallet, setWalletClicked }) => {
                             <img src={NfidWallet} alt="" className='w-16 h-8  ' />
                         </div>
                         <div className='font-normal text-xl font-cabin text-start'>
-                            Nfid Wallet
+                            NFID
                         </div>
                     </div>
                 </div>

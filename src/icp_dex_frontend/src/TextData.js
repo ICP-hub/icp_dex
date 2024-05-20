@@ -163,13 +163,13 @@ export const LandingPageData = {
             HeadingWordTwo: "Innovative",
             HeadingWordThree: "techniques",
             Description: "By integrating Balancer-like liquidity pool techniques, our decentralized exchange offers unparalleled asset handling, empowering users with optimized trading and portfolio ",
-            ButtonText: "Get Deatils",
+            ButtonText: "Get Details",
         },
         LowerSection: {
             HeadingWordOne: "Unbeatable",
             HeadingWordTwo: "Rates",
             Description: "Enjoy the most competitive trading fees and benefit from our tiered liquidity provider rewards that incentivize deep liquidity provision and fair trading conditions",
-            ButtonText: "Get Deatils",
+            ButtonText: "Get Details",
         }
     },
     AboutSectionData: {

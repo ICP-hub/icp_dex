@@ -6,20 +6,30 @@ import GradientButton from '../../buttons/GradientButton';
 import { showAlert, hideAlert } from '../../reducer/Alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddCoin } from '../../reducer/PoolCreation';
+import { useAuth } from '../../components/utils/useAuthClient';
 const SelectTokensForPools = ({ handleNext }) => {
 
     const dispatch = useDispatch();
     const { Tokens, CoinCount } = useSelector((state) => state.pool)
-    // console.log(Tokens)
+    const { isAuthenticated } = useAuth()
+
     const [ButtonActive, SetButtonActive] = useState(false);
+    const [WalletConnected, SetWalletConnected] = useState(false)
 
     useEffect(() => {
         console.log("Current Token Count:->", CoinCount)
     }, [CoinCount])
 
+    useEffect(() => {
+        if (isAuthenticated) {
+            SetWalletConnected(true)
+        } else {
+            SetWalletConnected(false)
+        }
+    }, [isAuthenticated])
+
     const HandleSelectCheck = () => {
         const allTokensSelected = Tokens.every((token) => token.Selected);
-        // console.log("Selected or not->", allTokensSelected)
         SetButtonActive(allTokensSelected);
     }
 
@@ -69,22 +79,35 @@ const SelectTokensForPools = ({ handleNext }) => {
                 className={`font-cabin text-base font-medium `}
                 onClick={() => {
 
-                    if (!ButtonActive) {
-                        dispatch(showAlert({
-                            type: 'danger',
-                            text: 'Please select all the coins'
-                        }))
+                    if (!ButtonActive || !WalletConnected) {
+                        if (!ButtonActive) {
+                            dispatch(showAlert({
+                                type: 'danger',
+                                text: 'Please select all the coins'
+                            }))
 
-                        setTimeout(() => {
-                            dispatch(hideAlert());
-                        }, [3000])
+                            setTimeout(() => {
+                                dispatch(hideAlert());
+                            }, [3000])
+                        }
+                        if (!WalletConnected) {
+                            dispatch(showAlert({
+                                type: 'danger',
+                                text: 'Please connect your wallet'
+                            }))
+
+                            setTimeout(() => {
+                                dispatch(hideAlert());
+                            }, [3000])
+                        }
                     } else {
                         handleNext()
                     }
                 }}
             >
                 <GradientButton CustomCss={`my-4 w-full ${ButtonActive ? ' opacity-100 cursor-pointer' : 'opacity-50 cursor-default'}`}>
-                    Next
+                {WalletConnected ? "Next" : "Wallet Not Connected"}
+
                 </GradientButton>
             </div>
         </div>

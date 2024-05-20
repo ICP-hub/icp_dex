@@ -11,11 +11,12 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../components/utils/useAuthClient';
 const Swap = () => {
 
-    const { createTokenActor, principal } = useAuth();
+    const { createTokenActor, principal, isAuthenticated } = useAuth();
     const navigate = useNavigate();
     const [tokenActor, setActorToken] = useState(createTokenActor("bkyz2-fmaaa-aaaaa-qaaaq-cai"))
     const [Message, setMessage] = useState('');
     const [show1, setShow1] = useState(false);
+    const [WalletConnected, SetWalletConnected] = useState(false)
     const [show2, setShow2] = useState(false);
     const [show3, setShow3] = useState(false);
     const [PayCoin, setPayCoin] = useState(null);
@@ -66,9 +67,11 @@ const Swap = () => {
         setRecieveCoin(Temp);
 
     }
+    useEffect(() => {
+        SetWalletConnected(isAuthenticated)
+    }, [isAuthenticated])
 
     const handleChangeAmount = (e) => {
-        // Remove any non-numeric characters
         let number = parseInt(e.target.value);
         console.log("number this time", number)
 
@@ -329,10 +332,22 @@ const Swap = () => {
                                             </div>
                                         ) : (
                                             <div onClick={() => {
-                                                setClickSwap(true);
-                                                // console.log("swap click", ClickedSwap);
+                                                if (!WalletConnected) {
+                                                    dispatch(showAlert({
+                                                        type: 'danger',
+                                                        text: 'Please connect your wallet'
+                                                    }))
+
+                                                    setTimeout(() => {
+                                                        dispatch(hideAlert());
+                                                    }, [3000])
+                                                } else {
+                                                    setClickSwap(true);
+                                                }
                                             }}>
-                                                <GradientButton CustomCss={'w-full  font-extrabold text-3xl '}>{SwapModalData.MainButtonsText.SwapNow}</GradientButton>
+                                                <GradientButton CustomCss={'w-full font-extrabold text-3xl'}>
+                                                    {WalletConnected ? SwapModalData.MainButtonsText.SwapNow : "Wallet Not Connected"}
+                                                </GradientButton>
                                             </div>
                                         )}
                                     </div>

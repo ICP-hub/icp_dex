@@ -7,7 +7,7 @@ import { showAlert, hideAlert } from '../../reducer/Alert';
 import { useDispatch } from 'react-redux';
 import { SetFeeShare } from '../../reducer/PoolCreation';
 
-const SetPoolFees = ({ handleNext }) => {
+const SetPoolFees = ({ handleNext,handleBack }) => {
 
     const dispatch = useDispatch();
     const [ButtonActive, SetButtonActive] = useState(false);
@@ -97,8 +97,19 @@ const SetPoolFees = ({ handleNext }) => {
                     }
                 }}
             >
-                <GradientButton CustomCss={`my-4 w-full ${ButtonActive ? ' opacity-100 cursor-pointer' : 'opacity-50 cursor-default'}`}>
+                <GradientButton CustomCss={` w-full ${ButtonActive ? ' opacity-100 cursor-pointer' : 'opacity-50 cursor-default'}`}>
                     Next
+                </GradientButton>
+
+            </div>
+            <div
+                className={`font-cabin text-base font-medium `}
+                onClick={() => {
+                    handleBack()
+                }}
+            >
+                <GradientButton CustomCss={` w-full`}>
+                    Back
                 </GradientButton>
             </div>
         </div>
