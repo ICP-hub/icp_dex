@@ -5,22 +5,20 @@ import ArrowPool from '../../assets/images/ArrowPool.png'
 import { AllPoolsData } from '../../TextData'
 import { useNavigate } from 'react-router-dom'
 const ShowAllPools = () => {
-  
+
   const [displayCount, setDisplayCount] = useState(Math.min(5, AllPoolsData.TableData.length));
   const [buttonVisible, setButtonVisibility] = useState(true);
   useEffect(() => {
     if (AllPoolsData.TableData.length < 6) {
       setButtonVisibility(false)
-      }
-      }, [AllPoolsData.TableData])
-      
-      const navigate = useNavigate();
-      return (
-    <div className=' w-full h-screen relative '> 
+    }
+  }, [AllPoolsData.TableData])
 
-    <div className='w-full h-screen  text-white md:max-w-[80%] mt-4 z-20 sm:px-8 mx-auto absolute md:translate-x-[15%] '>
+  const navigate = useNavigate();
+  return (
+    <div className='w-full h-screen  text-white md:max-w-[80%] mt-4 z-50 px-8 mx-auto'>
 
-      <div className='flex justify-between bg-[#010427] p-2 pb-6 pt-6 rounded-lg mx-auto'>
+      <div className='flex justify-between bg-[#010427] p-2 pb-6 pt-24 rounded-lg mx-auto'>
         <div className='flex justify-between items-center gap-4 md:gap-16 mx-8 md:mx-16'>
           <span className='font-cabin  md:text-3xl font-medium text-white' >Ethereum Pools</span>
           <div className='cursor-pointer'>
@@ -31,8 +29,8 @@ const ShowAllPools = () => {
         <div className='mr-4'
           onClick={() => {
             navigate('/dex-swap/pool/create-pool');
-            }}>
-          <GradientButton CustomCss={`hover:opacity-75 text-xs md:text-base lg:text-base h-[45px] w-[120px] py-2 lg:py-4`}>
+          }}>
+          <GradientButton CustomCss={`hover:opacity-75 text-xs md:text-base lg:text-base h-[50px] w-[95px] lg:h-[60px] lg:w-[150px] py-2 lg:py-4`}>
             Create Pool
           </GradientButton>
         </div>
@@ -65,7 +63,7 @@ const ShowAllPools = () => {
                     const FirstTokenName = pool.Tokens[0].TokenName
                     const FirstTokenShare = pool.Tokens[0].Share
                     return (
-                      <tr key={index}>
+                    <tr key={index}>
 
                       <td className='min-w-52 whitespace-nowrap my-4 text-sm md:text-base font-medium text-white flex items-center gap-5 justify-center'>
                         <span className='flex gap-2'>
@@ -85,7 +83,7 @@ const ShowAllPools = () => {
                               TokenPool.slice(1).map((token, index) => (
                                 <span key={index}>/{token.TokenName}</span>
                               ))
-                              }
+                            }
                           </span>
                           <span>: :</span>
                           <span>{FirstTokenShare}</span>
@@ -118,7 +116,7 @@ const ShowAllPools = () => {
 
                 </tbody>
               </table>
-                <div className='flex justify-center items-center mb-24'>
+                <div className='flex justify-center items-center mb-8'>
                   {buttonVisible && (
                     <div>
                       {AllPoolsData.TableData.length > displayCount && (
@@ -146,7 +144,6 @@ const ShowAllPools = () => {
       </div>
 
     </div>
-                    </div>
   )
 }
 

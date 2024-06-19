@@ -11,7 +11,7 @@ const CreatePools = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className='w-11/12 md:w-[60%] lg:w-[47%] mx-auto pb-10'>
+      <div className='w-10/12 lg:w-4/12 mx-auto '>
         <div className='flex justify-between items-center'>
           <span className='font-cabin font-medium text-2xl leading-7'>{CreatePoolsData.HeadingText}</span>
           <div onClick={() => {
@@ -32,7 +32,7 @@ const CreatePools = () => {
                 const TokenPool = pool.TokenName
 
                 return (
-                  <div className='my-6 bg-[#181B21]  rounded-lg mx-auto p-4 font-cabin font-medium text-base leading-5 flex justify-between items-center' key={index}>
+                  <div className='my-10 bg-[#181B21]  rounded-lg mx-auto p-4 font-cabin font-medium text-base leading-5 flex justify-between items-center' key={index}>
                     <div className='flex justify-between items-center gap-4'>
                       <div className='flex gap-2'>
                         {

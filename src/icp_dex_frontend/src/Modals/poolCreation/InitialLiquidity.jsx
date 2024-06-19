@@ -89,9 +89,7 @@ const InitialLiquidity = () => {
     };
 
     return (
-        <div className=''>
-             
-        <div className='z-50 w-max m-auto flex flex-col gap-4 p-3 sm:p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
+        <div className='z-50 w-fit h-5/6 flex flex-col gap-4 p-3 sm:p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg'>
             <div className='w-[78%] sm:w-[74%] place-self-end  flex justify-between'>
                 <span className='font-fahkwang font-light text-base sm:text-3xl '>Set Initial Liquidity</span>
                 <div className='sm:hidden block'>
@@ -103,7 +101,7 @@ const InitialLiquidity = () => {
             </div>
 
 
-            <div className='flex justify-between gap-12 sm:gap-52 items-center font-cabin'>
+            <div className='flex justify-between gap-12 sm:gap-64 items-center font-cabin'>
 
                 <div className='flex flex-col'>
 
@@ -143,7 +141,7 @@ const InitialLiquidity = () => {
             <div>
                 {RestTokens.map((token, index) => {
                     const balance = restTokensBalances[index]
-                    
+
                     return (
                         <div key={index}>
                             <div className='border-t-[1px] opacity-50 item-center my-6'></div>
@@ -201,7 +199,7 @@ const InitialLiquidity = () => {
                             type: 'danger',
                             text: 'Please select all the coins'
                         }))
-                        
+
                         setTimeout(() => {
                             dispatch(hideAlert());
                         }, [3000])
@@ -222,13 +220,12 @@ const InitialLiquidity = () => {
                         console.log("dispatched finished")
                     }
                 }}
-                >
+            >
                 <GradientButton CustomCss={` my-2 sm:my-4 w-full ${ButtonActive ? ' opacity-100 cursor-pointer' : 'opacity-50 cursor-default'}`}>
                     Analyse Pair
                 </GradientButton>
             </div>
         </div>
-                </div>
     )
 }
 
