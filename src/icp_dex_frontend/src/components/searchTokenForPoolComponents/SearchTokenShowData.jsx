@@ -13,7 +13,7 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
     const { CoinCount } = useSelector(state => state.pool);
 
 
-    useEffect(() => {
+    useEffect(() => {                   
         // console.log("index of the coin",index)
     }, [])
 
@@ -33,7 +33,7 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
     };
 
     return (
-        <div className='flex justify-between gap-8 custom-400:gap-8 custom-450:gap-16 sm:gap-32 items-center mt-4 z-10' key={token.id}>
+        <div id='selectToken' className='flex justify-between gap-8 custom-400:gap-8 custom-450:gap-16 sm:gap-32 items-center mt-4 z-10' key={token.id}>
             <div className='flex justify-between items-center gap-1 sm:gap-2'>
                 <span>{token.ShortForm}</span>
                 <span className='bg-[#3E434B] py-1 rounded-lg px-1 md:px-3'>
@@ -127,7 +127,7 @@ const SearchTokenShowData = ({ token, index, HandleSelectCheck }) => {
                     </div>
                 ) : (
                     <div>
-                        <BlueGradientButton customCss={'px-1 py-2 lg:px-4 lg:py-3 font-cabin font-extrabold'}>
+                        <BlueGradientButton customCss={'py-2 lg:px-4 lg:py-3 font-cabin font-light'}>
                             <div className='flex items-center gap-1 text-xs sm:text-sm'
                                 onClick={() => {
                                     setSearchToken(!searchToken);

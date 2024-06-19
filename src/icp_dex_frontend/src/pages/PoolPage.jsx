@@ -5,6 +5,7 @@ import ShowAllPools from '../components/poolPageComponent/ShowAllPools'
 import CreatePools from '../components/poolPageComponent/CreatePools'
 import CreatePoolStepsPage from './CreatePoolStepsPage'
 import { useLocation } from 'react-router-dom'
+import Carousel from './Carousel'
 
 const PoolPage = () => {
     const location = useLocation();
@@ -19,11 +20,11 @@ const PoolPage = () => {
         }
     }, [location])
     return (
-        <div className='h-screen bg-[#000711]'>
+        <div className='h-screen bg-[#000711] '>
             <div className='items-center'>
                 {
                     location.pathname != '/dex-swap/pool/create-pool/steps' ? (
-                        <img src={PoolPageBackGround} alt="" className='z-0 h-96 w-full absolute top-0' />
+                        <img src={PoolPageBackGround} alt="" className='-z-0 h-96 w-full absolute top-0' />
                     ) : (
                         <div>
 
@@ -35,7 +36,7 @@ const PoolPage = () => {
                         <div className='flex justify-center'>
                             {
                                 boxText == 'Create Pool' ? (
-                                    <div className='m-14 w-10/12 border  text-white p-8 rounded-2xl backdrop-blur-3xl lg:w-4/12'>
+                                    <div className='my-14 md:m-14 w-11/12 border  text-white p-8 rounded-2xl backdrop-blur-3xl md:w-[60%] lg:w-[47%]'>
                                         <div className='text-start font-fawhkwang font-normal leading-7 text-2xl'>
                                             Rewards For Liquidity Providers
                                         </div>
@@ -63,7 +64,7 @@ const PoolPage = () => {
             <Routes>
                 <Route path='/' element={<ShowAllPools />} />
                 <Route path='/create-pool' element={<CreatePools />} />
-                <Route path='/create-pool/steps' element={<CreatePoolStepsPage />} />
+                <Route path='/create-pool/steps' element={<Carousel />} />
             </Routes>
 
         </div>

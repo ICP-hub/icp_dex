@@ -62,7 +62,7 @@ function SwapSetting() {
                         </div>
                         <p className='text-[#F7931A] hidden md:inline-block'>0.5%</p>
                     </div>
-                    <div className='flex items-start w-full md:justify-end gap-x-1'>
+                    <div className='flex items-start w-full md:justify-end gap-x-4'>
                         {/* buttons */}
                         <button className='h-[39px] w-[72px] button-gradient-wrapper text-white font-[400] text-base font-cabin rounded-lg py-4 px-[1.875rem] hover:opacity-50'><span className="button-gradient-content flex justify-center items-center p-1 ">
                             Auto

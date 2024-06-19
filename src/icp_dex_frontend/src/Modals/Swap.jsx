@@ -86,22 +86,23 @@ const Swap = () => {
     }
     console.log("settings", settings)
     return (
-        <div className='px-4 py-10 md:px-0'>
+        <div className='px-4 py-10 md:px-0   '>
             <div >
-                <div className='relative align-middle lg:w-5/12 md:w-8/12 h-5/6 flex flex-col  gap-4 p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg z-10'>
+                <div className=' relative align-middle lg:w-5/12 md:w-8/12 h-2/6 flex flex-col  p-6 bg-gradient-to-b from-[#3E434B] to-[#02060D] border mx-auto rounded-lg z-10'>
                     <div className=' w-[64%] sm:w-[58%] place-self-end  flex justify-between z-50'>
                         <span className='font-fahkwang font-light text-3xl '>{SwapModalData.Heading}</span>
                         <Bolt size={30} className='cursor-pointer' onClick={() => handleSettings()} />
                     </div>
                     {
-                        settings ? (
-                            <div className='absolute flex align-middle items-center justify-center h-full  w-11/12  '>
-                              <SwapSetting />
+                        settings && <>
+                            <div className='fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40' onClick={()=> handleSettings()}></div>
+                            <div className='absolute flex align-middle items-center justify-center h-full  w-11/12 '>
+                                <SwapSetting />
                             </div>
-                        ) : ""
+                        </>
                     }
 
-                    <div className=' mx-auto sm:mx-8 w-full flex justify-between items-center'>
+                    <div className=' mx-auto sm:mx-8 w-full flex justify-between items-center '>
 
                         {
                             PayCoin ? (
@@ -138,9 +139,9 @@ const Swap = () => {
                         <div>
                             {!PayCoin ? (
                                 <div>
-                                    <div className='flex w-  sm:mr-12 items-center  gap-2'
+                                    <div className='flex  sm:mr-12 items-center  gap-2'
                                     >
-                                        <BlueGradientButton customCss={'px-2  md:w-40 sm:px-4 py-1 sm:py-3 font-cabin md:font-extrabold'}
+                                        <BlueGradientButton customCss={'px-2  md:w-40 sm:px-4 py-1 sm:py-3 font-cabin md:font-light'}
                                         >
                                             <div className='flex text-sm sm:text-base items-center gap-1'>
                                                 {SwapModalData.PaySection.TokenSelectButtonText}
@@ -185,7 +186,7 @@ const Swap = () => {
                             )}
                         </div>
                     </div>
-                    <div className='flex flex-col justify-center items-center my-12'>
+                    <div className='flex flex-col justify-center items-center mt-8'>
                         <div className='border-b border-white w-11/12'></div>
                         <div className='bg-[#000711] rounded-xl p-4 xl:w-1/12 lg:w-1/6 -mt-6 cursor-pointer flex flex-col items-center' onClick={ClickedChange}>
                             <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,7 +221,7 @@ const Swap = () => {
                         <div>
                             {!RecieveCoin ? (
                                 <div className='flex  sm:mr-12 items-center place-self-end gap-2'>
-                                    <BlueGradientButton customCss={'px-2  md:w-40 sm:px-4 py-1 sm:py-3 font-cabin md:font-extrabold'}>
+                                    <BlueGradientButton customCss={'px-2  md:w-40 sm:px-4 py-1 sm:py-3 font-cabin md:font-light'}>
                                         <div className='flex text-sm  sm:text-base  items-center gap-1'
                                             onClick={() => {
                                                 console.log(searchToken2)
@@ -284,11 +285,6 @@ const Swap = () => {
                                     {`0.000052 ETH  ($0.1656)`}
                                 </div>
                             </div>
-
-
-
-
-
 
                             <div>
                                 {
