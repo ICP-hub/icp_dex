@@ -51,7 +51,9 @@ body {
   }
 
 }
-
+.swiper-slide-active {
+  width: 650px !important; /* Adjust the width as needed */
+}
 
 .rotate-11-7 {
   transform: rotate(-11.7deg);
@@ -103,3 +105,69 @@ input[type="number"] {
 
 
 
+/* swiper */
+/* index.css */
+
+/* Container for the entire component */
+.container {
+ 
+
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Slider controller containing the buttons and slider */
+.slider-controler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Styles for the slider buttons */
+.slider-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #8D4C00;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+}
+
+.slider-arrow:hover {
+  opacity: 0.7;
+}
+
+/* Step content area */
+.step-content {
+
+}
+
+/* Tooltip styling for the slider */
+.rc-slider-tooltip {
+  font-size: 12px;
+  background: #000;
+  color: #fff;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.rc-slider-tooltip-arrow {
+  display: none;
+}
+
+/* Tooltip overlay styling */
+.rc-slider-tooltip-inner {
+  background-color: #000;
+  color: #fff;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.rc-slider-tooltip-placement-top .rc-slider-tooltip-arrow {
+  bottom: -4px;
+}

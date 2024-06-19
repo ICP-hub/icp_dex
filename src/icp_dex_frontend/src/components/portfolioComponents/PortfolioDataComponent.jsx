@@ -16,9 +16,10 @@ const PortfolioDataComponent = () => {
 
     const navigate = useNavigate();
     return (
-        <div className='w-full h-screen  text-white  md:max-w-[80%] mt-28 z-50 px-8 mx-auto'>
+        <div className=' w-full h-screen relative '> 
+        <div className='w-full h-screen  text-white  md:max-w-[80%] mt-12 z-50 px-8 mx-auto absolute md:translate-x-[15%]'>
 
-            <div className='flex justify-between bg-[#010427] p-2  pb-6 pt-12  rounded-lg mx-auto'>
+            <div className='flex justify-between bg-[#010427] p-2  pb-6 pt-8  rounded-lg mx-auto'>
                 <div className='flex justify-between items-center  mx-2  md:mx-16'>
                     <span className='font-cabin text-xl md:text-3xl font-medium'>My Liquidity Pools</span>
                 </div>
@@ -27,7 +28,7 @@ const PortfolioDataComponent = () => {
                     onClick={() => {
                         navigate('/dex-swap/pool/create-pool');
                     }}>
-                    <GradientButton CustomCss={`hover:opacity-75 text-xs md:text-base lg:text-base h-[50px] w-[95px] lg:h-[60px] lg:w-[150px] py-2 lg:py-4`}>
+                    <GradientButton CustomCss={`hover:opacity-75 text-xs md:text-base lg:text-base h-[45px] w-[120px] py-2 lg:py-4`}>
                         Create Pool
                     </GradientButton>
                 </div>
@@ -140,6 +141,8 @@ const PortfolioDataComponent = () => {
             </div>
 
         </div>
+        </div>
+       
     )
 }
 

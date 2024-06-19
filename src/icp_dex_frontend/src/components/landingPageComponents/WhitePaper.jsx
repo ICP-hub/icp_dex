@@ -14,7 +14,7 @@ const whitePaper = () => {
                     {LandingPageData.WhitePaperText.Heading}
                 </div>
 
-                <div className='md:text-xl font-normal font-cabin leading-6 max-w-7xl mx-auto'>
+                <div className='md:text-xl font-normal font-cabin leading-6 max-w-7xl mx-auto px-1 md:px-24'>
                     {LandingPageData.WhitePaperText.Description}
                 </div>
 

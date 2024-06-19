@@ -18,7 +18,7 @@ const Methods = () => {
                     <img src={MethodsImageOne} alt="MethodImageOne" className='h-10/12 w-10/12 ' />
                 </div>
 
-                <div className='w-1/2 flex flex-col justify-between font-fahkwang text-4xl p-4  items-start'>
+                <div className='w-1/2 flex flex-col justify-between font-fahkwang text-4xl  items-start'>
                     <div className='mb-0'>
                         <div className='flex gap-2 '>
                             <span className=' '>{LandingPageData.MethodsText.UpperSection.HeadingWordOne}</span>
@@ -40,7 +40,7 @@ const Methods = () => {
 
             <div className='lg:flex justify-between hidden m-16'>
 
-                <div className='w-1/2 ml-16 flex flex-col justify-between font-fahkwang text-4xl p-6 '>
+                <div className='w-1/2 ml-16 flex flex-col justify-between font-fahkwang text-4xl  '>
                     <div>
                         <div className='flex gap-2'>
                             <GradientSpan >{LandingPageData.MethodsText.LowerSection.HeadingWordOne}</GradientSpan>
@@ -76,7 +76,7 @@ const Methods = () => {
                         <span className=' '>{LandingPageData.MethodsText.UpperSection.HeadingWordThree}</span>
                     </div>
 
-                    <div className='font-cabin font-[400] text-xl leading-7   text-center '>
+                    <div className='font-cabin font-[400] text-base md:text-xl leading-7   text-center '>
                         {LandingPageData.MethodsText.UpperSection.Description}
                     </div>
                     <div className='m-4 '>
@@ -99,7 +99,7 @@ const Methods = () => {
                         </div>
                     </div>
 
-                    <div className='font-cabin font-[400] text-xl leading-7   '>
+                    <div className='font-cabin font-[400] text-base md:text-xl leading-7   '>
                         {LandingPageData.MethodsText.LowerSection.Description}
                     </div>
                     <div className='m-4'>
