@@ -8,8 +8,8 @@ import { useDispatch } from 'react-redux';
 import { showAlert, hideAlert } from '../reducer/Alert';
 
 const options = [
-    // { value: 'ethereum', label: 'Ethereum', img: '/src/assets/images/Network/Ethereum.png' },
-    // { value: 'bitcoin', label: 'Bitcoin', img: 'images/Bitcoin.png' },
+    { value: 'ethereum', label: 'Ethereum', img: '/src/assets/images/Network/Ethereum.png' },
+    { value: 'bitcoin', label: 'Bitcoin', img: 'images/Bitcoin.png' },
     // Add more options here
 ];
 
@@ -18,7 +18,7 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
     const dispatch = useDispatch()
     const [activeLink, setActiveLink] = useState(0);
     const [open, setOpen] = useState(false);
-    const { isAuthenticated, login, logout, principal, reloadLogin } = useAuth();
+    const { isAuthenticated, login, logout, principal, } = useAuth();
     const [Principal, setPrincipal] = useState('');
     const [copied, setCopied] = useState(false);
     const [selectedOption, setSelectedOption] = useState(options[0]);
@@ -28,7 +28,7 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
         const getDisplayFunction = () => {
             const SlicedPrincipal = principal.toText().slice(0, 5);
             // console.log(typeof SlicedPrincipal)
-            const FinalId = SlicedPrincipal.padEnd(10, '.');
+            const FinalId = SlicedPrincipal.padEnd(10, '.') + principal.toText().slice(56, 63);
             setPrincipal(FinalId)
             console.log("Principal of user is:", FinalId)
         }
@@ -36,7 +36,6 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
         if (principal) {
             getDisplayFunction()
         }
-        reloadLogin()
 
     }, [principal]);
     const navigate = useNavigate();
@@ -71,9 +70,9 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
   
 
     return (
-        <div className={` sticky top-0 z-50 `}>
+        <div className={` mx-9  sticky top-0 z-50 `}>
             <div className="w-full rounded-2xl  bg-[#05071D] font-cabin tracking-wide backdrop-blur-md ">
-                <div className="w-full flex justify-between  items-center py-2">
+                <div className="w-full flex justify-between lg:gap-8 items-center py-2">
 
                     <div className='flex items-center justify-between md:justify-start px-2'>
                         <div className='flex items-center gap-2 md:gap-3'>
@@ -84,8 +83,8 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
 
                     </div>
                     <div className='w-[70%] flex justify-center gap-x-4'>
-                        <div className='text-base flex  gap-4   items-center rounded-b-lg  md:w-[100%] px-2'>
-                            <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-[#05071D] rounded-lg left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in gap-2 xl:gap-6 ${open ? 'top-12' : 'top-[-490px]'}`}>
+                        <div className='text-base flex  gap-4 lg:gap-8  items-center rounded-b-lg  md:w-[100%] px-2'>
+                            <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-[#05071D] rounded-lg left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in gap-2 lg:gap-6 ${open ? 'top-12' : 'top-[-490px]'}`}>
                                 {
                                     NavbarData.Links.map((Link, index) => (
                                         <li key={index} className='md:ml-8 md:my-0 my-7 font-normal'>
@@ -131,20 +130,20 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                         {/* drop down Network*/}
                        { location.pathname === "/dex-swap" && <div className="relative inline-block ">
                             <div
-                                className=" rounded-md md shadow-md flex items-center justify-between gap-x-2 p-2 cursor-pointer"
+                                className=" rounded-md shadow-md flex items-center justify-between gap-x-2 p-2 cursor-pointer"
                                 onClick={() => document.getElementById('options-container').classList.toggle('hidden')}
                             >
                                 <div className="flex items-center">
-                                   {selectedOption && <img src={selectedOption?.img} alt={selectedOption?.label} className="w-6 h-6 mr-2" />}
-                                    <span className='md:inline-block hidden'>{selectedOption?.label}</span>
+                                    <img src={selectedOption.img} alt={selectedOption.label} className="w-6 h-6 mr-2" />
+                                    <span className='md:inline-block hidden'>{selectedOption.label}</span>
                                 </div>
                                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
-                            <div id="options-container" className="absolute z-10 mt-1 p-2 top-16 right-[-2rem] bg-[#05071D] border border-gray-300 rounded-md shadow-lg hidden md:w-[200%] w-[112%]">
+                            <div id="options-container" className="absolute z-10 mt-1 p-2 top-16 right-[-2rem] bg-[#05071D] border border-gray-300 rounded-md shadow-lg hidden w-[200%] md:w-[112%]">
                                 <h1 className='text-center '>Select Network</h1>
-                                {options && options.map((option) => (
+                                {options.map((option) => (
                                     <div
                                         key={option.value}
                                         className="flex items-center p-2 cursor-pointer hover:border rounded-lg hover:border-gray-500 "
@@ -161,12 +160,12 @@ const MobileNavbar = ({ NavbarData, setClickConnectWallet }) => {
                         </div>}
                     </div>
 {/* //// */}
-                    <div className='md:my-0 my-7 font-semibold md:flex md:items-center md:gap-5 hidden  pr-1'>
+                    <div className='md:my-0 my-7 font-semibold md:flex md:items-center md:gap-5 hidden '>
                         <div className="border-l border-white h-12"></div>
-                        <div className=' flex items-center '>
+                        <div className='mr-9 flex justify-center items-center '>
 
                             {
-                                isAuthenticated && <div className='flex items-center w-28 text-center text-white font-cabin text-xl font-normal'>
+                                isAuthenticated && <div className='flex items-center gap-2 w-48 text-center text-white font-cabin text-xl font-normal'>
                                     <span>
                                         {Principal}
                                     </span>
